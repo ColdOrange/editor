@@ -9,6 +9,9 @@
 # production
 /build
 
+# flow types
+/flow-typed
+
 # misc
 .DS_Store
 .env.local
