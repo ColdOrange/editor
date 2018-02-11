@@ -19,7 +19,7 @@ class Input extends React.PureComponent<Props, State> {
     super(props);
 
     const { defaultValue = '' } = this.props;
-    const width = getWidth(defaultValue);
+    const width = stringWidth(defaultValue);
 
     this.state = { width };
   }
@@ -38,20 +38,26 @@ class Input extends React.PureComponent<Props, State> {
   }
 
   handleChange = (e: InputEvent) => {
-    const width = getWidth(e.target.value);
+    const width = stringWidth(e.target.value);
 
     this.setState({ width });
   };
 }
 
-const getWidth = (src: string) => {
+// width of a string
+const stringWidth = (src: string): string => {
   const length = src
     .split('')
-    .reduce(
-      (prev, curr) => (/[^\x00-\xff]/.test(curr) ? prev + 14 : prev + 9),
-      2
-    );
+    .reduce((prev, curr) => prev + charWidth(curr), 2);
+
   return `${length}px`;
+};
+
+const charWidth = (src: string): number => {
+  if (/^[0-9]*$/.test(src)) return 9.5;
+  if (/[^\x00-\xff]/.test(src)) return 14;
+
+  return 9;
 };
 
 export default Input;

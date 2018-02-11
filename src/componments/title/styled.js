@@ -18,9 +18,8 @@ export const Group = styled.div`
 
 export const Input = styled.input`
   margin: 0 10px;
-  width: ${props => props.width || 'auto'};
+  width: ${props => (props.width ? props.width : 'auto')};
   min-width: 44px;
-  max-width: 30%;
   font-weight: 700;
   font-size: 14px;
   border: 2px solid rgba(0, 0, 0, 0);
