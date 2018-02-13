@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import Title from './componments/title';
 import Tools from './componments/tools';
+import Paper from './componments/paper';
 import './app.css';
 
 class App extends React.Component<{}> {
@@ -12,6 +13,7 @@ class App extends React.Component<{}> {
       <React.Fragment>
         <Title title="无标题" />
         <Tools />
+        <Paper />
       </React.Fragment>
     );
   }
