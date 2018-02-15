@@ -5,6 +5,7 @@ import * as React from 'react';
 import Button from '../button';
 import { Wrapper, Status, Group } from './styled';
 import Input from './input';
+import Avatar from '../avatar';
 
 type Props = {
   title: string
@@ -20,6 +21,7 @@ class Title extends React.PureComponent<Props> {
           <Status>所有更新已保存在云端</Status>
         </Group>
         <Group>
+          <Avatar />
           <Button>邀请</Button>
           <Button primary>分享</Button>
         </Group>
